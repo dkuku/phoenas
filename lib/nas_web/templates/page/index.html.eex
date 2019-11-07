@@ -1,0 +1,15 @@
+<section class="row">
+  <article class="column">
+    <h2>Resources</h2>
+    <ul>
+      <%= for file <- @files do %>
+        <li>
+          <%= if assigns[:path] do %>
+            <%= link file, to: Routes.page_path(@conn, :show, file, path: @path) %>
+          <% else %>
+            <%= link file, to: Routes.page_path(@conn, :show, file, path: "/") %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+</section>
